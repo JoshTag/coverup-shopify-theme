@@ -68,13 +68,11 @@
       predictiveSearchType: {{ settings.search_type | json }},
       quickView: {{ settings.quick_shop_enable }},
       themeName: 'Impulse',
-      themeVersion: "5.5.0"
+      themeVersion: "5.5.1"
     };
   </script>
 
   {{ content_for_header }}
-
-  {{ '//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js' | script_tag }}
 
   <script src="{{ 'vendor-scripts-v11.js' | asset_url | split: '?' | first }}" defer="defer"></script>
 
@@ -87,10 +85,6 @@
   {%- if request.page_type contains 'customers/' -%}
     <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
   {%- endif -%}
-
-  {{ 'bundle.min.js' | asset_url | script_tag }}
-
-  {% include 'judgeme_core' %}
 </head>
 
 <body class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if request.path == '/challenge' %} template-challange{% endif %}" data-center-text="{{ settings.type_body_align_text }}" data-button_style="{{ settings.button_style }}" data-type_header_capitalize="{{ settings.type_header_capitalize }}" data-type_headers_align_text="{{ settings.type_headers_align_text }}" data-type_product_capitalize="{{ settings.type_product_capitalize }}" data-swatch_style="{{ settings.swatch_style }}" {% if settings.disable_animations %}data-disable-animations="true"{% endif %}>
